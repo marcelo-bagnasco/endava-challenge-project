@@ -1,0 +1,22 @@
+{
+    "name": "mbagnasco/lexia-php-exercise",
+    "description": "Lexia exerecise",
+    "type": "project",
+    "require": {
+        "phpunit/phpunit": "^10.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mbagnasco\\LexiaPhpExercise\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marcelo Bagnasco",
+            "email": "marcelo.bagnasco@endava.com"
+        }
+    ]
+}
