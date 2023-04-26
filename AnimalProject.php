@@ -5,8 +5,22 @@ require "lib/animals.php";
 
 use Lib\General;
 
-if (isset($argv[1]) && $argv[1] == '--help') {
-    General\General::dd('Usage: ´php AnimalProject.php <name> <animal_type>´');
+if (isset($argv[1])) {
+    switch ($argv[1]) {
+        case '--help':
+            General\General::dd('Usage: ´php AnimalProject.php <name> <animal_type>´');
+            break;
+        case '--config':
+            if( isset($argv[2]) && isset($argv[3])) {
+                $type = $argv[2];
+                $sound = $argv[3];
+                $animal = new Animal('new',$type);
+                $animal->setNew($type,$sound);
+                General\General::dd("Animal '$type' configured with the sound '$sound'");
+            }
+            General\General::dd('Usage: ´php AnimalProject.php --config <animal_type> <sound>´');
+            break;
+    }
 }
 
 if ($argc < 3) {
@@ -25,7 +39,7 @@ if (class_exists($className)) {
 }
 
 try {
-    echo $animal->speak();
+    echo $animal->speak()."\n";
 } catch (Exception $e) {
     General\General::dd($e->getMessage());
 }
