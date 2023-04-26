@@ -20,6 +20,16 @@ if (isset($argv[1])) {
             }
             General\General::dd('Usage: ´php AnimalProject.php --config <animal_type> <sound>´');
             break;
+        case '--config-multi':
+            if( isset($argv[2]) && isset($argv[3])) {
+                $typeMulti = $argv[2];
+                $soundMulti = $argv[3];
+                $animal = new Animal('new',$typeMulti);
+                $animal->setNewMulti($typeMulti,$soundMulti);
+                General\General::dd("Animals configured");
+            }
+            General\General::dd('Usage: ´php AnimalProject.php --config <animal_type1>,<animal_type2>,<animal_typeN> <sound1>,<sound2>,<soundN>´');
+            break;
     }
 }
 
@@ -41,5 +51,6 @@ if (class_exists($className)) {
 try {
     echo $animal->speak()."\n";
 } catch (Exception $e) {
-    General\General::dd($e->getMessage());
+    echo $e->getMessage()."\n";
+    General\General::dd("Use php AnimalProject.php '--config' OR '--config-multi' to configure new animals.");
 }

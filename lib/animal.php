@@ -46,9 +46,21 @@ class Animal
 
     public function setNew($type,$sound)
     {
-        $animalFile = $this->resourcesPath.'/'.strtolower($type).'.al';
-        file_put_contents($animalFile,'');
-        file_put_contents($animalFile,$sound);
+        if( $type && $sound ) {
+            $animalFile = $this->resourcesPath.'/'.strtolower($type).'.al';
+            file_put_contents($animalFile,'');
+            file_put_contents($animalFile,$sound);
+        }
+    }
+
+    public function setNewMulti($types,$sounds)
+    {
+        $typesArray = explode(',',$types);
+        $soundsArray = explode(',',$sounds);
+        foreach ( $typesArray as $key => $type ) {
+            $sound = $soundsArray[$key];
+            $this->setNew($type,$sound);
+        }
     }
 
     /**
