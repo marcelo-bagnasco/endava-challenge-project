@@ -14,7 +14,7 @@ if (isset($argv[1])) {
             if( isset($argv[2]) && isset($argv[3])) {
                 $type = $argv[2];
                 $sound = $argv[3];
-                $animal = new Animal('new',$type);
+                $animal = new DynamicAnimal('new',$type);
                 $animal->setNew($type,$sound);
                 General\General::dd("Animal '$type' configured with the sound '$sound'");
             }
@@ -24,7 +24,7 @@ if (isset($argv[1])) {
             if( isset($argv[2]) && isset($argv[3])) {
                 $typeMulti = $argv[2];
                 $soundMulti = $argv[3];
-                $animal = new Animal('new',$typeMulti);
+                $animal = new DynamicAnimal('new',$typeMulti);
                 $animal->setNewMulti($typeMulti,$soundMulti);
                 General\General::dd("Animals configured");
             }
@@ -45,7 +45,7 @@ $className = ucfirst(strtolower($type));
 if (class_exists($className)) {
     $animal = new $className($name);
 } else {
-    $animal = new Animal($name, $type);
+    $animal = new DynamicAnimal($name, $type);
 }
 
 try {
