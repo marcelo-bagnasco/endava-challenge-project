@@ -48,7 +48,7 @@ class AnimalTest extends TestCase
 
     public function testSetNew()
     {
-        $animal = new Animal('Marcelo','bird');
+        $animal = new DynamicAnimal('Marcelo','bird');
         $animal->setNew('bird','pipi');
         $file = './resources/animals/bird.al';
         $fileContent = file_get_contents($file);
@@ -57,10 +57,10 @@ class AnimalTest extends TestCase
 
     public function testGetDynamicSound()
     {
-        $animal = new Animal('Marcelo','bird');
+        $animal = new DynamicAnimal('Marcelo','bird');
         $animal->setNew('bird','pipipi');
 
-        $animal2 = new Animal('Marcelo','bird');
+        $animal2 = new DynamicAnimal('Marcelo','bird');
         $this->assertSame("Marcelo says 'pipipi'",$animal2->speak());
     }
 
