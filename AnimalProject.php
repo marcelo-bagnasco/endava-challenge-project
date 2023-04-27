@@ -28,7 +28,7 @@ if (isset($argv[1])) {
                 $animal->setNewMulti($typeMulti,$soundMulti);
                 General\General::dd("Animals configured");
             }
-            General\General::dd('Usage: ´php AnimalProject.php --config <animal_type1>,<animal_type2>,<animal_typeN> <sound1>,<sound2>,<soundN>´');
+            General\General::dd('Usage: ´php AnimalProject.php --config-multi <animal_type1>,<animal_type2>,<animal_typeN> <sound1>,<sound2>,<soundN>´');
             break;
     }
 }
