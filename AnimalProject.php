@@ -8,7 +8,15 @@ use Lib\General;
 if (isset($argv[1])) {
     switch ($argv[1]) {
         case '--help':
-            General\General::dd('Usage: ´php AnimalProject.php <name> <animal_type>´');
+            $helpText = "\e[31mUsage:\e[0m\n";
+            $helpText.= "´php AnimalProject.php [name] [animal_type]´\n\n";
+            $helpText.= "\e[31mConfiguration:\e[0m\n";
+            $helpText.= "\e[90mConfigure a new animal type with it's sound:\e[0m\n";
+            $helpText.= "´php AnimalProject.php --config <animal_type> <sound>´\n";
+            $helpText.= "\e[90mConfigure multiple animal types with their sounds:\e[0m\n";
+            $helpText.= "´php AnimalProject.php --config <animal_type> <sound>´\n";
+
+            General\General::dd($helpText);
             break;
         case '--config':
             if( isset($argv[2]) && isset($argv[3])) {
